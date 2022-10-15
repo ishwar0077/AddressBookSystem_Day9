@@ -34,10 +34,25 @@ namespace AddressBookSystemProgram
                 return false;
             }
         }
+        public bool remove(string name)
+        {
+            Address addr = find(name);
+
+            if (addr != null)
+            {
+                addresses.Remove(addr);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         public void list(Action<Address> action)
         {
             addresses.ForEach(action);
         }
+   
         public Address find(string name)
         {
             Address addr = addresses.Find((a) => a.firstName == name);

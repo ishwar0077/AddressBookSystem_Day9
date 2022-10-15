@@ -34,6 +34,7 @@ class Program
         Console.WriteLine("------------------");
         Console.WriteLine("A - Add an Address");
         Console.WriteLine("E - Edit an Address");
+        Console.WriteLine("D - Delete an Address");
         Console.WriteLine("Q - Quit");
     }
 
@@ -82,6 +83,19 @@ class Program
                     Console.WriteLine("An address is already on file for {0}.", firstName);
                 }
                 break;
+            case "D":
+                Console.WriteLine("Enter Name to Delete: ");
+                firstName = Console.ReadLine();
+                if (book.remove(firstName))
+                {
+                    Console.WriteLine("Address successfully removed");
+                }
+                else
+                {
+                    Console.WriteLine("Address for {0} could not be found.", firstName);
+                }
+                break;
+           
             case "E":
                 Console.WriteLine("Enter Name to Edit: ");
                 firstName = Console.ReadLine();
