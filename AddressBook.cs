@@ -1,27 +1,40 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Reflection.Emit;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace AddressBookSystemProgram
 {
-    public class AddressBook
+
+    class AddressBook
     {
-        public void CreateAddressBook(string fistName, string lastName, 
-                                        string addrss, string city, string state,
-                                        string zipcode, string phoneNumber, string email )
+
+        public string firstName;
+        public string lastName;
+        public string address;
+        public string city;
+        public string state;
+        public string zipCode;
+        public string phoneNumber;
+        public string email;
+
+        public AddressBook(string firstName, string lastName, string address, string city, string state, string zipCode, string phoneNumber, string email)
         {
-            Console.WriteLine("First Name: "+fistName
-                                +"\nLast Name: "+lastName
-                                +"\nAddress: "+addrss
-                                +"\nCity: "+ city
-                                +"\nState: "+state
-                                +"\nZip Code: "+zipcode
-                                +"\nPhone Number: "+ phoneNumber
-                                +"\nEmail: "+email);
-           
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.address = address;
+            this.city = city;
+            this.state = state;
+            this.zipCode = zipCode;
+            this.phoneNumber = phoneNumber;
+            this.email = email;
         }
+      
+
     }
 }
