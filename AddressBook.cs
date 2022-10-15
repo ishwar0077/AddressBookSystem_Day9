@@ -10,31 +10,38 @@ using System.Xml.Linq;
 
 namespace AddressBookSystemProgram
 {
-
     class AddressBook
     {
+        List<Address> addresses;
 
-        public string firstName;
-        public string lastName;
-        public string address;
-        public string city;
-        public string state;
-        public string zipCode;
-        public string phoneNumber;
-        public string email;
-
-        public AddressBook(string firstName, string lastName, string address, string city, string state, string zipCode, string phoneNumber, string email)
+        public AddressBook()
         {
-            this.firstName = firstName;
-            this.lastName = lastName;
-            this.address = address;
-            this.city = city;
-            this.state = state;
-            this.zipCode = zipCode;
-            this.phoneNumber = phoneNumber;
-            this.email = email;
+            addresses = new List<Address>();
         }
-      
 
+        public bool add(string firstName, string lastName, string address, string city, string state, string zipCode, string phoneNumber, string email)
+        {
+            Address addr = new Address(firstName, lastName, address, city, state, zipCode, phoneNumber, email);
+            Address result = find(firstName);
+
+            if (result == null)
+            {
+                addresses.Add(addr);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public void list(Action<Address> action)
+        {
+            addresses.ForEach(action);
+        }
+        public Address find(string name)
+        {
+            Address addr = addresses.Find((a) => a.firstName == name);
+            return addr;
+        }
     }
 }
